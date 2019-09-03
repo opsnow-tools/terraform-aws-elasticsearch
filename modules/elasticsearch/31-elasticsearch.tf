@@ -17,7 +17,7 @@ resource "aws_elasticsearch_domain" "this" {
   ebs_options {
     ebs_enabled = var.ebs_volume_size > 0 ? true : false
     volume_size = var.ebs_volume_size
-    volume_type = var.ebs_volume_type
+    volume_type = var.ebs_volume_size > 0 ? var.ebs_volume_type : ""
     iops        = var.ebs_iops
   }
 
